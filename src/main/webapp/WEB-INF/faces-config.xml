@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<faces-config version="2.0" xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd">
+    
+    <name>primefaces_manhattan</name>
+    
+    <component>
+        <component-type>org.primefaces.component.ManhattanMenu</component-type>
+        <component-class>hu.food.foodsite.component.Menu</component-class>
+    </component>
+    
+    <render-kit>
+        <renderer>
+            <component-family>org.primefaces.component</component-family>
+            <renderer-type>org.primefaces.component.ManhattanMenuRenderer</renderer-type>
+            <renderer-class>hu.food.foodsite.component.MenuRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+
+    <application>
+        <locale-config>
+            <default-locale>hu</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+        <resource-bundle>
+            <base-name>messages.Messages</base-name>
+            <var>msg</var>
+        </resource-bundle>
+    </application>
+    
+</faces-config>

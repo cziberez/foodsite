@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+
+    <div class="layout-rightpanel">
+        <div class="nano">
+            <div class="nano-content right-panel-scroll-content">
+                <div class="layout-rightpanel-header">
+                    <div style="padding-bottom: 1em;">
+                        <p:clock pattern="HH:mm:ss"/>
+                    </div>
+                    <div class="weather-day">#{msg['rightpanel.date']}</div>
+                    <div class="weather-date">
+                        <h:outputText value="#{session.lastAccessedTime}">
+                            <f:convertDateTime locale="#{msg['locale']}" type="date" dateStyle="full"/>
+                        </h:outputText>
+                    </div>
+                </div>
+
+                <div class="layout-rightpanel-content">
+                    <h2>Coming soon...</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ui:composition>

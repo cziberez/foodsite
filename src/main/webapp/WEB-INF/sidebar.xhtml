@@ -1,0 +1,56 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pm="http://primefaces.org/manhattan">
+
+    <div class="layout-sidebar">
+        <div class="layout-sidebar-logo">
+            <a href="dashboard.xhtml">
+                <p:graphicImage name="images/logo-manhattan.png" library="manhattan-layout" />
+            </a>
+            <a href="#" id="layout-sidebar-anchor" class="layout-sidebar-anchor" title="#{msg['sidebar.toggleMenu']}">
+                <i class="fa"/>
+            </a>
+        </div>
+
+        <div class="nano">
+            <div class="nano-content sidebar-scroll-content">
+                <div class="layout-menu-container">
+                    <h:form id="menuform">
+                        <pm:menu>
+                            <p:menuitem id="pm_dashboard" value="#{msg['sidebar.dashboard']}" icon="fa fa-home" outcome="/dashboard" />
+<!--                            TODO: kiszervezni profil oldalra-->
+                            <p:submenu id="pm_menu_colors" label="#{msg['sidebar.menuColors']}" icon="fa fa-paint-brush">
+                                <p:menuitem id="pm_menu_dark" value="#{msg['sidebar.darkMenu']}" icon="fa fa-square" actionListener="#{guestPreferences.setLightMenu(false)}" ajax="false"/>
+                                <p:menuitem id="pm_menu_light" value="#{msg['sidebar.lightMenu']}" icon="fa fa-square-o" actionListener="#{guestPreferences.setLightMenu(true)}" ajax="false"/>
+                            </p:submenu>
+                            <p:submenu id="pm_themes_colors" label="#{msg['sidebar.themes']}" icon="fa fa-paint-brush">
+                                <f:attribute name="badge" value="16" />
+                                <p:menuitem id="pm_layout_teal_yellow" value="Teal - Yellow" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('teal-yellow')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_blue_orange" value="Blue - Orange" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('blue-orange')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_pink_teal" value="Pink - Teal" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('pink-teal')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_indigo_purple" value="Indigo - Purple" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('indigo-purple')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_green_pink" value="Green - Pink" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('green-pink')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_indigo_yellow" value="Indigo - Yellow" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('indigo-yellow')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_cyan_deeporange" value="Cyan - Deep Orange" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('cyan-deeporange')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_green_orange" value="Green - Orange" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('green-orange')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_orange_cyan" value="Orange - Cyan" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('orange-cyan')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_blue_grey" value="Blue - Grey" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('blue-grey')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_deeppurple_teal" value="Deep Purple - Teal" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('deeppurple-teal')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_pink_cyan" value="Pink - Cyan" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('pink-cyan')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_orange_indigo" value="Orange - Indigo" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('orange-indigo')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_darkpink_cyan" value="Dark Pink - Cyan" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('darkpink-cyan')}" ajax="false"/>
+                                <p:menuitem id="pm_layout_green_purple" value="Green - Purple" icon="fa fa-diamond" actionListener="#{guestPreferences.setTheme('green-purple')}" ajax="false"/>
+                            </p:submenu>
+                            <p:menuitem id="pm_empty" value="#{msg['sidebar.emptyPage']}" icon="fa fa-book" outcome="/empty"/>
+                        </pm:menu>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ui:composition>

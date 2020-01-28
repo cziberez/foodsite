@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      lang="en">
+
+<h:head>
+    <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+    </f:facet>
+    <title>FoodSite - <ui:insert name="title"/></title>
+    <h:outputScript name="js/nanoscroller.js" library="manhattan-layout"/>
+    <h:outputScript name="js/layout.js" library="manhattan-layout"/>
+    <ui:insert name="head"/>
+</h:head>
+
+<h:body>
+    <div class="layout-wrapper #{guestPreferences.layoutStyleClass}">
+        <div class="layout-main">
+
+            <h:form id="langForm">
+                <p:dialog id="langDialog" modal="true" resizable="false" responsive="true" width="40vw"
+                          height="30vh"
+                          dynamic="false" closable="false"
+                          closeOnEscape="false"
+                          widgetVar="langDlg" showEffect="fade" hideEffect="hide" header="#{msg['langauge']}"
+                          visible="#{localeBean.checkLangaugeDialogVisibility()}">
+                    <p:panelGrid id="langSelectImages" styleClass="noborder" columns="2">
+                        <h:graphicImage library="manhattan-layout" value="images/flags/hunlogo.png" title="#{msg['hungarian']}"/>
+                        <h:graphicImage library="manhattan-layout" value="images/flags/englogo.png" title="#{msg['english']}"/>
+                    </p:panelGrid>
+                    <p:selectOneRadio id="langSelectRadio" value="#{localeBean.selectedLang}" layout="responsive"
+                                      columns="2" required="true" requiredMessage="#{msg['chooseOne']}">
+                        <f:selectItem itemLabel="#{msg['hungarian']}" itemValue="hu"/>
+                        <f:selectItem itemLabel="#{msg['english']}" itemValue="en"/>
+                    </p:selectOneRadio>
+                    <f:facet name="footer">
+                        <p:panelGrid id="langPanelGrid">
+                            <p:commandButton id="saveLangaugeButton" value="#{msg['select']}" process="langDialog"
+                                             partialSubmit="true"
+                                             actionListener="#{localeBean.saveLocale}" oncomplete="location.reload();"/>
+                        </p:panelGrid>
+                    </f:facet>
+                </p:dialog>
+            </h:form>
+
+            <ui:include src="./topbar.xhtml"/>
+
+            <div class="layout-content">
+                <ui:insert name="content"/>
+            </div>
+
+            <ui:include src="./footer.xhtml"/>
+
+            <div class="layout-main-mask"></div>
+        </div>
+
+        <ui:include src="./rightpanel.xhtml"/>
+        <ui:include src="./sidebar.xhtml"/>
+    </div>
+
+    <p:ajaxStatus style="width:32px;height:32px;position:fixed;right:7px;bottom:7px">
+        <f:facet name="start">
+            <i class="fa fa-circle-o-notch fa-spin ajax-loader" aria-hidden="true"/>
+        </f:facet>
+
+        <f:facet name="complete">
+            <h:outputText value=""/>
+        </f:facet>
+    </p:ajaxStatus>
+
+    <h:outputStylesheet name="css/nanoscroller.css" library="manhattan-layout"/>
+    <h:outputStylesheet name="css/layout-#{guestPreferences.theme}.css" library="manhattan-layout"/>
+</h:body>
+
+</html>

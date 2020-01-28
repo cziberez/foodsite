@@ -1,0 +1,198 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="title">
+        <h:outputText value="#{msg['dashboard.title']}"/>
+    </ui:define>
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            function skinBar() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#3984b8', '#7e8dcd'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#dee4e9',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    borderWidth: 0.1,
+                    borderColor: 'dce2e7',
+                    rendererOptions: {
+                        textColor: '#757575'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    renderer: $.jqplot.BarRenderer,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                }
+            }
+        </script>
+        <style type="text/css">
+            .main-content {
+                padding: 0;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="content">
+        <div class="ui-g dashboard">
+            <div class="ui-g-12 ui-lg-6 ui-xl-3">
+                <div class="ui-g overview-box overview-box-1">
+                    <div class="overview-box-icon">
+                        <i class="fa fa-inbox"/>
+                    </div>
+                    <div class="overview-box-content">
+                        <div class="overview-box-title">Unread Messages</div>
+                        <div class="overview-box-stats">150</div>
+                        <div class="overview-box-details">+%50 more than yesterday</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-lg-6 ui-xl-3">
+                <div class="ui-g overview-box overview-box-2">
+                    <div class="overview-box-icon">
+                        <i class="fa fa-map-marker"/>
+                    </div>
+                    <div class="overview-box-content">
+                        <div class="overview-box-title">Check-Ins</div>
+                        <div class="overview-box-stats">532</div>
+                        <div class="overview-box-details">+%75 more than yesterday</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-lg-6 ui-xl-3">
+                <div class="ui-g overview-box overview-box-3">
+                    <div class="overview-box-icon">
+                        <i class="fa fa-folder"/>
+                    </div>
+                    <div class="overview-box-content">
+                        <div class="overview-box-title">Files Synced</div>
+                        <div class="overview-box-stats">25</div>
+                        <div class="overview-box-details">+%15 more than yesterday</div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-lg-6 ui-xl-3">
+                <div class="ui-g overview-box overview-box-4">
+                    <div class="overview-box-icon">
+                        <i class="fa fa-user"/>
+                    </div>
+                    <div class="overview-box-content">
+                        <div class="overview-box-title">Users Online</div>
+                        <div class="overview-box-stats">156</div>
+                        <div class="overview-box-details">-%20 less than last week</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui-g-12 ui-lg-6 stats">
+                <p:panel header="Statistics">
+                    <div class="knob-1 knob">
+                        <div class="knob-2 knob">
+                            <div class="knob-3 knob"></div>
+                        </div>
+                    </div>
+
+                    <div class="ui-g legend">
+                        <div class="ui-g-12 ui-md-4 idle">
+                            <div class="legend-color"></div>
+                            <div class="legend-name">Idle</div>
+                            <div class="legend-number">43242</div>
+                        </div>
+                        <div class="ui-g-12 ui-md-4 pending">
+                            <div class="legend-color"></div>
+                            <div class="legend-name">Pending</div>
+                            <div class="legend-number">6345</div>
+                        </div>
+                        <div class="ui-g-12 ui-md-4 completed">
+                            <div class="legend-color"></div>
+                            <div class="legend-name">Completed</div>
+                            <div class="legend-number">4626</div>
+                        </div>
+                    </div>
+                </p:panel>
+            </div>
+
+            <div class="ui-g-12 ui-lg-6 contacts">
+                <p:panel header="Contacts">
+                    <ul>
+                        <li class="clearfix">
+                            <p:graphicImage name="images/avatar.png" library="manhattan-layout" width="45"/>
+                            <div class="contact-info">
+                                <span class="name">Madison Hughes (me)</span>
+                                <span class="location">madison@pf-manhattan.com</span>
+                            </div>
+                            <div class="contact-actions">
+                                <span class="connection-status online">online</span>
+                                <i class="fa fa-paper-plane-o"/>
+                                <i class="fa fa-phone"/>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p:graphicImage name="images/avatar1.png" library="manhattan-layout" width="45"/>
+                            <div class="contact-info">
+                                <span class="name">Joshua Williams</span>
+                                <span class="location">joshua@pf.com</span>
+                            </div>
+                            <div class="contact-actions">
+                                <span class="connection-status online">online</span>
+                                <i class="fa fa-paper-plane-o"/>
+                                <i class="fa fa-phone"/>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p:graphicImage name="images/avatar2.png" library="manhattan-layout" width="45"/>
+                            <div class="contact-info">
+                                <span class="name">Emily Clark</span>
+                                <span class="location">emily@pf.com</span>
+                            </div>
+                            <div class="contact-actions">
+                                <span class="connection-status offline">offline</span>
+                                <i class="fa fa-paper-plane-o"/>
+                                <i class="fa fa-phone"/>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p:graphicImage name="images/avatar3.png" library="manhattan-layout" width="45"/>
+                            <div class="contact-info">
+                                <span class="name">Tim Johnson</span>
+                                <span class="location">tim@pf.com</span>
+                            </div>
+                            <div class="contact-actions">
+                                <span class="connection-status online">online</span>
+                                <i class="fa fa-paper-plane-o"/>
+                                <i class="fa fa-phone"/>
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <p:graphicImage name="images/avatar4.png" library="manhattan-layout" width="45"/>
+                            <div class="contact-info">
+                                <span class="name">David Stark</span>
+                                <span class="location">david@pf.com</span>
+                            </div>
+                            <div class="contact-actions">
+                                <span class="connection-status offline">offline</span>
+                                <i class="fa fa-paper-plane-o"/>
+                                <i class="fa fa-phone"/>
+                            </div>
+                        </li>
+                    </ul>
+                </p:panel>
+            </div>
+
+        </div>
+    </ui:define>
+
+</ui:composition>
